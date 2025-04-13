@@ -42,7 +42,6 @@ def chat(query, context):
         - ** Recommended Defense Strategies**
         - ** Supporting Past Cases**
         - ** Expected Sentencing Outcome**
-        - ** Observations on Disparities (if any)**
         - ** Final Recommendation**
     - Be concise, factual, and back your advice with insights from similar past cases.
     - End with a **bold one-line actionable recommendation**.
