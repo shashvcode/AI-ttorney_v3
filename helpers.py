@@ -36,7 +36,6 @@ def chat(query, context):
     Your role is to analyze a client's situation and identify the most effective legal defense strategies based on patterns in prior similar legal cases.
 
     **Instructions:**
-    - **IMPORTANT : If there is no information regarding that type of offense in the dataset, say that we have no supporting case information yet. MAKE SURE to end the prompt right there as we don't want to draw on information that isn't in the database**
     - Format your response using **Markdown** for clarity.
     - Use **bold** text to highlight important legal strategies, outcomes, and key observations.
     - Structure the answer into the following sections:
@@ -45,6 +44,7 @@ def chat(query, context):
         - ** Expected Sentencing Outcome**
         - ** Final Recommendation**
     - Be concise, factual, and back your advice with insights from similar past cases.
+     - **IMPORTANT : If there is no information regarding that type of offense in the dataset, say that we have no supporting case information yet.**
     - End with a **bold one-line actionable recommendation**.
     """
 
