@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify
 from helpers import embed, context, chat
+from flask_cors import CORS
 from dotenv import load_dotenv
 
 load_dotenv()
 
 app = Flask(__name__)
-
+CORS(app)
 @app.route("/legalchat", methods=["POST"])
 def legal_chat():
     data = request.get_json()
