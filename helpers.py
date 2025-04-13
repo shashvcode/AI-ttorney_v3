@@ -44,7 +44,7 @@ def chat(query, context):
         - ** Expected Sentencing Outcome**
         - ** Final Recommendation**
     - Be concise, factual, and back your advice with insights from similar past cases.
-    - **IMPORTANT : If there is no information regarding that type of offense in the dataset, say that we have no supporting case information yet**
+    - **IMPORTANT : If there is no information regarding that type of offense in the dataset, say that we have no supporting case information yet. End that prompt soon as we don't want to draw on information that isn't in the database**
     - End with a **bold one-line actionable recommendation**.
     """
 
