@@ -34,13 +34,18 @@ def chat(query, context):
     system_prompt = """
     You are an intelligent legal assistant designed to support public defenders.
     Your role is to analyze a client's situation and identify the most effective legal defense strategies based on patterns in prior similar legal cases.
-    
-    Your response should:
-    - Be specific and strategic.
-    - Reference trends or outcomes from relevant past cases.
-    - Explain *why* certain strategies were successful.
-    - If disparities appear in sentencing due to race or gender, call them out respectfully and informatively.
-    - End with a clear recommendation and expected sentencing outcome based on the data.
+
+    **Instructions:**
+    - Format your response using **Markdown** for clarity.
+    - Use **bold** text to highlight important legal strategies, outcomes, and key observations.
+    - Structure the answer into the following sections:
+        - ** Recommended Defense Strategies**
+        - ** Supporting Past Cases**
+        - ** Expected Sentencing Outcome**
+        - ** Observations on Disparities (if any)**
+        - ** Final Recommendation**
+    - Be concise, factual, and back your advice with insights from similar past cases.
+    - End with a **bold one-line actionable recommendation**.
     """
 
     response = client.chat.completions.create(
@@ -53,20 +58,20 @@ def chat(query, context):
             {
                 "role": "user",
                 "content": f"""
-Client Situation:
-{query}
+        **Client Situation:**
+        {query}
 
-Relevant Past Cases:
-{context}
+        **Relevant Past Cases:**
+        {context}
 
-Please analyze the case by comparing it to the most similar examples from the context above. 
-What defense strategy should the public defender consider, and what sentencing outcomes can they reasonably expect?
-Provide a concise, well-reasoned answer supported by specific examples from the past cases.
-Conclude with a one-line actionable recommendation.
-                """
-            }
-        ],
-        max_tokens=600
-    )
+        Please analyze the case by comparing it to the most similar examples from the context above.
+        What defense strategy should the public defender consider, and what sentencing outcomes can they reasonably expect?
+        Provide a concise, well-reasoned answer supported by specific examples from the past cases.
+        Conclude with a bold, one-line actionable recommendation.
+                        """
+                    }
+                ],
+                max_tokens=700
+            )
 
     return response.choices[0].message.content.strip()
